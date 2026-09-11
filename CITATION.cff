@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper below."
+title: "Listening for Airway Stenosis: A Foundation Model-Based Method for Rapid and Accessible Detection"
+authors:
+  - family-names: Groeninger
+    given-names: Jean
+  - family-names: Zhao
+    given-names: Zihao
+  - family-names: de Castilhos
+    given-names: Juliana
+  - family-names: Nebelung
+    given-names: Sven
+  - family-names: Truhn
+    given-names: Daniel
+year: 2026
+license: MIT
+repository-code: "https://github.com/JeanGrng/listening-for-airway-stenosis"
