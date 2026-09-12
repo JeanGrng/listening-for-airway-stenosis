@@ -132,10 +132,12 @@ encoder sees exactly the same (patient, task) set and the comparison stays fair.
 
 This repository distributes **no dataset content**. Bridge2AI-Voice is de-identified, but released
 through PhysioNet under credentialed access and the Bridge2AI Voice Registered Access License. Obtain
-it there, sign the agreement, then point the code at your copy:
+it there, sign the agreement, then point the code at your copy. All results here use **version
+3.0.0** (doi:10.13026/k81f-qr68); later versions contain more participants and will not reproduce the
+same cohort.
 
 ```bash
-export B2AI_ROOT=/path/to/physionet.org/files/b2ai-voice/<version>
+export B2AI_ROOT=/path/to/physionet.org/files/b2ai-voice/3.0.0
 ```
 
 The patient-level split files are not redistributed either: they are derived from the dataset, so
@@ -183,5 +185,18 @@ data/README.md  split schema and how to obtain the dataset
 
 ## Citation
 
-See `CITATION.cff`. Third-party code and model licences are listed in `THIRD_PARTY.md`.
-This code is released under the MIT licence (`LICENSE`).
+For this code and the paper, see `CITATION.cff`.
+
+Work built on the dataset must also cite it, as required by PhysioNet:
+
+> Bensoussan, Y., Sigaras, A., Rameau, A., Elemento, O., Powell, M., Dorr, D., Payne, P.,
+> Ravitsky, V., Belisle-Pipon, J., Bahr, R., Watts, S., Bolser, D., Siu, J., Lerner-Ellis, J.,
+> Rudzicz, F., Boyer, M., Abdel-Aty, Y., Ahmed Syed, T., Anibal, J., ... Ghosh, S. (2025).
+> Bridge2AI-Voice: An ethically-sourced, diverse voice dataset linked to health information
+> (version 3.0.0). PhysioNet. RRID:SCR_007345. doi:10.13026/k81f-qr68
+
+and acknowledge its funding: "This project was funded by NIH project number 3OT2OD032720-01S1:
+Bridge2AI: Voice as a Biomarker of Health."
+
+Third-party code and model licences are listed in `THIRD_PARTY.md`. This code is released under the
+MIT licence (`LICENSE`).

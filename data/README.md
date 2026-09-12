@@ -10,10 +10,14 @@ any re-identification risk, is why the split files below are described here inst
 
 ## Obtaining the dataset
 
-Complete the PhysioNet credentialing process, sign the agreement, download a release, then:
+All results in this repository were produced on **Bridge2AI-Voice version 3.0.0**
+(PhysioNet, December 2025, doi:10.13026/k81f-qr68). Later versions add participants, so the cohort
+counts below will not match if you download a different one. Pin the version when reproducing.
+
+Complete the PhysioNet credentialing process, sign the agreement, download version 3.0.0, then:
 
 ```bash
-export B2AI_ROOT=/path/to/physionet.org/files/b2ai-voice/<version>
+export B2AI_ROOT=/path/to/physionet.org/files/b2ai-voice/3.0.0
 ```
 
 The extraction scripts read `$B2AI_ROOT/features/torchaudio_spectrogram.parquet`, which holds one
