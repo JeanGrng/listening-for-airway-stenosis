@@ -44,12 +44,12 @@ TABLE2B = [
     ("TransMIL",              "fm_wavlm_L15_all", "TransMIL"),
 ]
 
-# Table 3 reports the best sub-task configuration, which is HuBERT + mean-pool+RF
-# (not the binary-task headline model), scored with pooled out-of-fold AUC.
+# Table 3 uses the same configuration as the rest of the paper, WavLM L15 with
+# TransMIL, and the same metric as Tables 1 and 2: the mean over five folds.
 TABLE3 = [
-    ("Localization (3-class)",     "fm_hubert_localization_all", "mean-pool+RF"),
-    ("Stridor detection (binary)", "fm_hubert_stridor_all",      "mean-pool+RF"),
-    ("Severity grading (3-class)", "fm_hubert_severity_all",     "mean-pool+RF"),
+    ("Localization (3-class)",     "fm_wavlm_localization_all", "TransMIL"),
+    ("Stridor detection (binary)", "fm_wavlm_stridor_all",      "TransMIL"),
+    ("Severity grading (3-class)", "fm_wavlm_severity_all",     "TransMIL"),
 ]
 
 
@@ -146,13 +146,13 @@ def main() -> None:
     body = []
     for label, d, head in TABLE3:
         r, _ = subtask_row(d, head)
-        body.append([label, f"{float(r['pooled_auc']):.3f}"])
+        body.append([label, pm(r["mean_auc"], r["std_auc"])])
     emit("Table 3 - beyond binary diagnosis",
          ["Task", "AUROC"], body,
-         ["Pooled out-of-fold AUC (macro one-vs-rest for the 3-class tasks), "
-          "HuBERT-Large L10 with mean-pool+RF, the best sub-task configuration. "
-          "Cohorts are small (N = 134 / 75 / 133), so these are exploratory. "
-          "The paper rounds these to two decimals (0.82 / 0.78 / 0.63)."], args.latex)
+         ["Macro one-vs-rest AUROC for the 3-class tasks, binary AUROC for stridor, "
+          "using WavLM L15 with TransMIL as everywhere else in the paper. "
+          "Cohorts are small (N = 134 / 75 / 133), which is why the fold-to-fold "
+          "variation on stridor is so wide; these results are exploratory."], args.latex)
 
 
 if __name__ == "__main__":

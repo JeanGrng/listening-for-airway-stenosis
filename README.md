@@ -74,13 +74,14 @@ on the full bag.
 
 | Task | AUROC |
 |---|---|
-| Localization (3-class) | 0.815 |
-| Stridor detection (binary) | 0.783 |
-| Severity grading (3-class) | 0.634 |
+| Localization (3-class) | 0.820 ± 0.060 |
+| Stridor detection (binary) | 0.669 ± 0.189 |
+| Severity grading (3-class) | 0.604 ± 0.063 |
 
-Pooled out-of-fold AUC, macro one-vs-rest for the 3-class tasks, using HuBERT-Large L10 with
-mean-pool + RF, the best sub-task configuration. The cohorts here are small (N = 134 / 75 / 133),
-so these results are exploratory. Detection works; fine-grained phenotyping does not yet.
+Macro one-vs-rest AUROC for the 3-class tasks, binary AUROC for stridor, using the same WavLM L15
+with TransMIL configuration as above. The cohorts here are small (N = 134 / 75 / 133), which is why
+the fold-to-fold variation on stridor is so wide, and these results are exploratory. Detection works;
+fine-grained phenotyping does not yet.
 
 ### Figure 2 · which task carries the signal
 
